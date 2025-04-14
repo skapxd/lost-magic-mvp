@@ -14,33 +14,181 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
 }
 
-body,
-html {
-  height: 100%;
-}
-
 canvas {
   height: 100%;
   width: 100%;
   outline: none;
-
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    0deg,
-    rgb(8, 163, 166) 0%,
-    rgba(79, 166, 167, 0.849) 8%,
-    rgba(61, 79, 94, 0.885) 40%,
-    rgb(17, 19, 23)
-  );
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Game UI Styles */
+.mana-bar {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  width: 200px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.mana-fill {
+  height: 100%;
+  background-color: #0077ff;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.mana-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.rune-panel {
+  position: absolute;
+  bottom: 55px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.rune {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.rune:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.spell-panel {
+  position: absolute;
+  bottom: 55px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 200px;
+  z-index: 100;
+}
+
+.selected-runes {
+  font-size: 14px;
+}
+
+.active-spell {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 3px rgba(255, 204, 0, 0.5);
+}
+
+button {
+  padding: 5px 10px;
+  margin-top: 5px;
+  border: none;
+  background-color: #555;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #777;
+}
+
+/* Game instructions panel */
+.instructions {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  max-width: 300px;
+  z-index: 100;
+}
+
+.instructions h3 {
+  margin-bottom: 5px;
+  color: #ffcc00;
+}
+
+.instructions p {
+  margin-bottom: 8px;
+}
+
+.instructions ul {
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
 }

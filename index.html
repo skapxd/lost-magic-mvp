@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/threejs-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Three.js + TypeScript + Vite</title>
+    <title>Lost Magic - MVP</title>
   </head>
   <body>
     <canvas id="scene"></canvas>
+    <div class="instructions">
+      <h3>Lost Magic - MVP</h3>
+      <p><strong>Controls:</strong></p>
+      <ul>
+        <li>WASD or Arrow Keys to move</li>
+        <li>Click on runes to select them</li>
+        <li>Spacebar to cast active spell</li>
+        <li>Double-click for fullscreen</li>
+      </ul>
+      <p><strong>How to cast spells:</strong></p>
+      <p>Select two runes to create a spell. For example, Fire + Projectile creates a Fireball.</p>
+      <button class="close-button" onclick="this.parentElement.style.display='none'">&times;</button>
+    </div>
     <script type="module" src="/src/scene.ts"></script>
   </body>
 </html>
